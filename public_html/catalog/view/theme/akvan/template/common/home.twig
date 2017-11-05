@@ -1,0 +1,169 @@
+{{ header }}
+    <!-- Main begin-->
+    <div id="main">
+        <!-- Slideshow brand begin -->
+        <div class="container">
+        {{ slidebar }}
+        <div class="container">
+            <div class="wrap clearfix">
+                {{ left_menu }}
+                <!-- Content begin -->
+                <div class="content pull-right">
+                    <!-- Block main begin -->
+                    <div class="main">
+                        {% if slideshow_blocks %}
+                           <div class="slideshow-main-wrapper">
+                              <ul class="slideshow-main">
+                                 {% for slideshow_block in slideshow_blocks %}
+                                    <li class="clearfix">
+                                        <img class="pull-left {{ slideshow_block.title }}" width="542" height="235">
+                                        <div class="pull-right">
+                                             {{ slideshow_block.description }}
+                                             <div class="shared clearfix">
+                                                <a href="javascript:void(0)" class="share pull-left" title="Поделиться">Поделиться</a>
+                                                <div class="social pull-right">
+                                                    <a href="javascript:void(0)" class="vk icon-m" title="vk"></a>
+                                                    <a href="javascript:void(0)" class="fb icon-m" title="fb"></a>
+                                                    <a href="javascript:void(0)" class="tw icon-m" title="tw"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                 {% endfor %}
+                              </ul>
+                          </div>
+                        {% endif %}
+                        <!-- Block items begin -->
+                        <div class="block-wrapper">
+                            <div class="advice">
+                                <h4>Новые поступления</h4>
+                                <div class="items">
+                                    <div class="item ">
+                                        <img src="../../img/pic-4.png" alt="pic 4">
+                                        <a href="javascript:void(0)" class="head" title="Решетка рад imp grb">Решетка рад imp grb </a>
+                                        <p>Наш интернет магазин - предлагает только профессиональные...</p>
+                                        <a href="javascript:void(0)" class="price"><span>28 712</span> руб.</a>
+                                    </div>
+                                    <div class="item ">
+                                        <img src="img/pic-5.png" alt="pic 5">
+                                        <a href="javascript:void(0)" class="head" title="Решетка рад imp grb">Решетка рад imp grb </a>
+                                        <p>Наш интернет магазин - предлагает только профессиональные...</p>
+                                        <a href="javascript:void(0)" class="price"><span>28 712</span> руб.</a>
+                                    </div>
+                                    <div class="item ">
+                                        <img src="img/pic-6.png" alt="pic 6">
+                                        <a href="javascript:void(0)" class="head" title="Решетка рад imp grb">Решетка рад imp grb </a>
+                                        <p>Наш интернет магазин - предлагает только профессиональные...</p>
+                                        <a href="javascript:void(0)" class="price"><span>28 712</span> руб.</a>
+                                    </div>
+                                </div>
+                                <a href="javascript:void(0)" class="view-all" title="Посмотреть все">Посмотреть все »</a>
+                            </div>
+                            <div class="advice">
+                                <h4>Спецпредложения</h4>
+                                <div class="items">
+                                    <div class="item">
+                                        <img src="img/pic-1.png" alt="pic 1">
+                                        <a href="javascript:void(0)" class="head" title="Решетка рад imp grb">Решетка рад imp grb </a>
+                                        <p>Наш интернет магазин - предлагает только профессиональные...</p>
+                                        <a href="javascript:void(0)" class="price"><span>28 712</span> руб.</a>
+                                    </div>
+                                    <div class="item">
+                                        <img src="img/pic-2.png" alt="pic 2">
+                                        <a href="javascript:void(0)" class="head" title="Решетка рад imp grb">Решетка рад imp grb </a>
+                                        <p>Наш интернет магазин - предлагает только профессиональные...</p>
+                                        <a href="javascript:void(0)" class="price"><span>28 712</span> руб.</a>
+                                    </div>
+                                    <div class="item">
+                                        <img src="img/pic-3.png" alt="pic 3">
+                                        <a href="javascript:void(0)" class="head" title="Решетка рад imp grb">Решетка рад imp grb </a>
+                                        <p>Наш интернет магазин - предлагает только профессиональные...</p>
+                                        <a href="javascript:void(0)" class="price"><span>28 712</span> руб.</a>
+                                    </div>
+                                </div>
+                                <a href="javascript:void(0)" class="view-all" title="Посмотреть все">Посмотреть все »</a>
+                            </div>
+                        </div>
+                        <!-- Block items end -->
+                        <!-- Block text begin -->
+                        <div class="main-info clearfix">
+                            <div class="intro pull-left">
+                                <div class="items">
+                                    <div class="item">
+                                        <h3><span>Причин</span> работы с нами</h3>
+                                    </div>
+                                    <div class="item dig dig-1">
+                                        <h4>Длительный опыт работы</h4>
+                                        <p>Наш интернет магазин - предлагает только профессиональные запчасти от ведущих мировых производителей...</p>
+                                    </div>
+                                    <div class="item dig dig-2">
+                                        <h4>Квалифицированные работники</h4>
+                                        <p>Наш интернет магазин - предлагает только профессиональные запчасти от ведущих мировых производителей...</p>
+                                    </div>
+                                    <div class="item dig dig-3">
+                                        <h4>Качество выполненых работ</h4>
+                                        <p>Наш интернет магазин - предлагает только профессиональные запчасти от ведущих мировых производителей...</p>
+                                    </div>
+                                    <div class="item dig dig-4">
+                                        <h4>Индивидуальный подход</h4>
+                                        <p>Наш интернет магазин - предлагает только профессиональные запчасти от ведущих мировых производителей...</p>
+                                    </div>
+                                    <div class="item dig dig-5">
+                                        <h4>Длительный опыт работы</h4>
+                                        <p>Наш интернет магазин - предлагает только профессиональные запчасти от ведущих мировых производителей...</p>
+                                    </div>
+                                    <div class="item dig dig-6">
+                                        <h4>Квалифицированные работники</h4>
+                                        <p>Наш интернет магазин - предлагает только профессиональные запчасти от ведущих мировых производителей...</p>
+                                    </div>
+                                    <div class="item dig dig-7">
+                                        <h4>Качество выполненых работ</h4>
+                                        <p>Наш интернет магазин - предлагает только профессиональные запчасти от ведущих мировых производителей...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about pull-right">
+                                <h1>О нашей компании</h1>
+                                <p>Компанией накоплен большой опыт в подготовке и полной комплектации спортивных автомобилей: кузовные работы, программное обеспечение, тюнинг и другие необходимые настройки. Используя оборудование, не имеющее аналогов в России, высококвалифицированные специалисты компании "УРТ" производят разработку комплектующих деталей для спортивных автомобилей группы N и успешно внедряют свои разработки на практике.</p>
+                                <p>Уникальная производственно-техническая база компании "УРТ" ("Успенский Ралли Техника") способствовала тому, что в 2005 г. компания получила от STI (Subaru Tecnica International) агентский контракт на подготовку и продажу спортивных автомобилей Subaru.</p>
+                                <p>Компания "УРТ" осуществляет инженерное и техническое сопровождение автомобилей Subaru</p>
+                            </div>
+                        </div>
+                        <!-- Block text end -->
+                        <!-- Block items begin -->
+                        <div class="block-wrapper">
+                            <div class="advice">
+                                <h4>До меня уже купили</h4>
+                                <div class="items">
+                                    <div class="item ">
+                                        <img src="img/pic-1.png" alt="pic 1">
+                                        <a href="javascript:void(0)" class="head" title="Решетка рад imp grb">Решетка рад imp grb </a>
+                                        <p>Наш интернет магазин - предлагает только профессиональные...</p>
+                                        <a href="javascript:void(0)" class="price"><span>28 712</span> руб.</a>
+                                    </div>
+                                    <div class="item">
+                                        <img src="img/pic-2.png" alt="pic 2">
+                                        <a href="javascript:void(0)" class="head" title="Решетка рад imp grb">Решетка рад imp grb </a>
+                                        <p>Наш интернет магазин - предлагает только профессиональные...</p>
+                                        <a href="javascript:void(0)" class="price"><span>28 712</span> руб.</a>
+                                    </div>
+                                    <div class="item">
+                                        <img src="img/pic-3.png" alt="pic 3">
+                                        <a href="javascript:void(0)" class="head" title="Решетка рад imp grb">Решетка рад imp grb </a>
+                                        <p>Наш интернет магазин - предлагает только профессиональные...</p>
+                                        <a href="javascript:void(0)" class="price"><span>28 712</span> руб.</a>
+                                    </div>
+                                </div>
+                                <a href="javascript:void(0)" class="view-all" title="Посмотреть все">Посмотреть все »</a>
+                            </div>
+                        </div>
+                        <!-- Block items end -->
+                    </div>
+                    <!-- Block end begin -->
+                </div>
+                <!-- Content end -->
+            </div>
+        </div>
+    </div>
+    <!-- Main end-->
+{{ footer }}
