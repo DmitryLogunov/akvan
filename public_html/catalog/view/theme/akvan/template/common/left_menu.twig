@@ -3,53 +3,30 @@
           <div class="left-menu">
             <span>Каталог продукции</span>
             <ul class="menu-accordion">
-              <li><a href="javascript:void(0)">Крепеж и инструмент</a>
+			 {% for category in categories %}
+				{% if category.children %}
+              <li><a href="{{ category.href }}">{{ category.name }}</a>
                 <ul class="dropdown">
-                  <li><a href="javascript:void(0)">Резьбовые крепежные детали</a>
+				 {% for children in  category.children %}
+                  <li><a href="{{ children.href }}">{{ children.name }}</a>
+					{% if children.child %}
                     <ul class="dropdown-sub">
-                      <li><a href="javascript:void(0)">Болты</a></li>
-                      <li><a href="javascript:void(0)">Шпильки</a></li>
-                      <li><a href="javascript:void(0)">Винты</a></li>
-                      <li><a href="javascript:void(0)">Шурупы</a></li>
+					 {% for child in  children.child %}	
+                       <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+					  {% endfor %} 
                     </ul>
+					 {% endif %}
                   </li>
-                  <li><a href="javascript:void(0)">Нерезьбовые крепежные детали</a>
-                    <ul class="dropdown-sub">
-                      <li><a href="javascript:void(0)">Шайбы</a></li>
-                      <li><a href="javascript:void(0)">Шплинты</a></li>
-                      <li><a href="javascript:void(0)">Штифты</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="javascript:void(0)">Дюбели и анкеры</a>
-                    <ul class="dropdown-sub">
-                      <li><a href="javascript:void(0)">Дюбели</a></li>
-                      <li><a href="javascript:void(0)">Анкеры</a></li>
-                    </ul>
-                </ul>
+				  {% endfor %} 
+				  </ul>
               </li>
-              <li><a href="javascript:void(0)">Электротехническое оборудование</a>
-                <ul class="dropdown">
-                  <li><a href="javascript:void(0)">Кабельно-проводниковая продукция</a></li>
-                  <li><a href="javascript:void(0)">Гофрированная труба</a></li>
-                  <li><a href="javascript:void(0)">Копуса щитов</a></li>
-                  <li><a href="javascript:void(0)">Светотехника</a></li>
-                </ul>
-              </li>
-              <li><a href="javascript:void(0)">Инженерная сантехника</a></li>
-              <li><a href="javascript:void(0)">Запорная арматура</a></li>
-              <li><a href="javascript:void(0)">Тепло- и звукоизоляция</a></li>
-              <li><a href="javascript:void(0)">Материалы для сухого строительства</a></li>
-              <li><a href="javascript:void(0)">Древесно-плитные материалы</a></li>
-              <li><a href="javascript:void(0)">Лесопиломатериалы </a></li>
-              <li><a href="javascript:void(0)">Кровля, сайдинг, водосточные системы</a></li>
-              <li><a href="javascript:void(0)">Лакокрасочные материалы</a></li>
-              <li><a href="javascript:void(0)">Пены, клеи, герметики</a></li>
-              <li><a href="javascript:void(0)">Кафельная плитка, затирки</a></li>
-              <li><a href="javascript:void(0)">Финишная отделка стен и потолков</a></li>
-              <li><a href="javascript:void(0)">Напольные покрытия</a></li>
-              <li><a href="javascript:void(0)">Двери, окна, скобяные изделия</a></li>
-              <li><a href="javascript:void(0)">Инженерная сантехника</a></li>
-            </ul>
+			   {% else %}
+					 <li><a href="{{ category.href }}">{{ category.name }}</a> </li>
+			   {% endif %}
+              {% endfor %}   
+				</ul>
           </div>
         </div>
 <!-- Sidebar end -->
+
+ 
