@@ -1,0 +1,112 @@
+<div class="simplecheckout-block" id="simplecheckout_cart" {{ hide ? 'data-hide="true"' : '' }} {{ has_error ? 'data-error="true"' : '' }}>
+
+<!--	Sort block begin	-->
+								<div class="sortable clearfix">
+									<div class="pull-left">
+										<span>Товары в корзине:</span>
+										<ul>
+											<li><a href="javascript:void(0)">Готовые к заказу (<span>1</span>)</a></li>
+											<li><a href="javascript:void(0)">Отложено (<span>0</span>)</a></li>
+										</ul>
+									</div>
+									<div class="pull-right clearfix">
+										<a href="javascript:void(0)" class="print">Распечатать состав заказа</a>
+									</div>
+								</div>
+								<!--	Sort block end	-->
+{% if display_header %}
+    <div class="checkout-heading panel-heading">{{ text_cart }}</div>
+{% endif %}
+{% if attention %}
+    <div class="alert alert-danger simplecheckout-warning-block">{{ attention }}</div>
+{% endif %}
+{% if error_warning %}
+    <div class="alert alert-danger simplecheckout-warning-block">{{ error_warning }}</div>
+{% endif %}
+<div class="list">
+									<table>
+										<tr>
+											<th class="col-1">{{ column_image }}</th>
+											<th class="col-2">{{ column_name }} / {{ column_model }}<a href="javascript:void(0)"></a></th>
+											<th class="col-3">Наличие<a href="javascript:void(0)" class="arrow"></a></th>
+											<th class="col-4 red">Скидка<a href="javascript:void(0)" class="arrow"></a></th>
+											<th class="col-5">{{ column_quantity }}<a href="javascript:void(0)" class="arrow"></a></th>
+											<th class="col-6">{{ column_price }}<br> без скидки<a href="javascript:void(0)" class="arrow"></a></th>
+											<th class="col-7 red">{{ column_price }}<br> со скидкой<a href="javascript:void(0)" class="arrow"></a></th>
+											<!-- <th class="col-8"></th> -->
+											<th class="col-9"></th>
+										</tr>
+									{% for product in products %}
+										<tr>
+											<td>
+											{% if product['thumb'] %}
+												<div class="wrap-img">
+													<img src="{{ product['thumb'] }}" alt="{{ product['name'] }}" title="{{ product['name'] }}">
+													<div class="img-big" style="display: none;">
+														<div class="arrow-left"></div>
+														<img src="{{ product['thumb'] }}" alt="{{ product['name'] }}" title="{{ product['name'] }}">
+													</div>
+												</div>
+											{% endif %}
+											</td>
+											<td class="id">
+												<a href="{{ product['href'] }}">{{ product['name'] }}</a>
+												<span>{{ product['model'] }}</span>
+											</td>
+											{% if not product['stock'] and (config_stock_warning or not config_stock_checkout) %}
+											<td class="none">Нет</td>
+											{% else %}
+											<td class="in-stock">Есть</td>
+											 {% endif %}
+											<td class="sale">10%</td>
+											<td id="quantity">{{ product['quantity'] }}</td>
+											<td class="price"><strong>{{ product['price'] }}</strong></td>
+											<td class="sale"><strong>{{ product['price'] }}</strong></td>
+											<!-- <td><a href="javascript:void(0)" class="defer">отложить</a></td> -->
+											
+											<td><a class="del" data-onclick="removeProduct" data-product-key="{{ product['cart_id'] is not empty ? product['cart_id'] : product['key'] }}" data-toggle="tooltip"  href="javascript:void(0)"></a></td>
+										</tr>
+									{% endfor %}
+									</table>
+								</div>
+
+ 
+                 <div class="checkout">
+									<div class="top clearfox">
+									{% if modules['coupon'] is defined %}
+										<div class="sale pull-left clearfix">
+										 
+												<div class="pull-left">
+													<label for="sale">Имеете купон на скидку?</label>
+													<p>Введите его в поле и нажмите “применить скидку”. Ваш заказ автоматически пересчитается с учетом вашей скидки на купоне.</p>
+												</div>
+												<div class="pull-right">
+													<!-- <input type="tel" id="sale" name="sale" placeholder="XXXXXXXX"> -->
+													<input class="form-control" type="text" placeholder="XXXXXXXX" data-onchange="reloadAll" name="coupon" value="{{ coupon }}" />
+													<button type="submit" data-onclick="reloadAll" name="sale-btn">Применить скидку</button>
+												</div>
+									 
+										</div>
+									{% endif %}
+										<div class="add-product pull-left">
+												<label>Добавить товар по артикулу</label>
+												<input type="text" id="articul" name="articul">
+												<input type="hidden" id="addproductid" name="addproductid">
+												<button type="submit" onclick="addtocuart();" name="add">Добавить</button>
+												<p>Артикул это комбинация цифр и чисел в поле “артикул” товара.</p>
+										</div>
+										<div class="out pull-right">
+											<p class="qty-goods">Товаров: <span id="sum">{{ quantity }}</span></p>
+										{% for total in totals %} 
+										{% if total['title'] == "Сумма" %}
+											<p class="sum">{{ total['title'] }}: <span>{{ total['text'] }}</span></p>
+										{% endif %}
+										{% endfor %}
+										</div>
+									</div>
+
+			 </div>
+								<!-- Block checkout end	-->
+ <input type="hidden" name="remove" value="" id="simplecheckout_remove">
+
+</div>
