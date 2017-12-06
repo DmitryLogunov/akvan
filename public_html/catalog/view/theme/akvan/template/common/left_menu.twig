@@ -3,30 +3,26 @@
           <div class="left-menu">
             <span>Каталог продукции</span>
             <ul class="menu-accordion">
-			 {% for category in categories %}
-				{% if category.children %}
-              <li><a href="{{ category.href }}">{{ category.name }}</a>
-                <ul class="dropdown">
-				 {% for children in  category.children %}
-                  <li><a href="{{ children.href }}">{{ children.name }}</a>
-					{% if children.child %}
-                    <ul class="dropdown-sub">
-					 {% for child in  children.child %}	
-                       <li><a href="{{ child.href }}">{{ child.name }}</a></li>
-					  {% endfor %} 
+              {% for category in categories %}
+                <li><a href="{{ category.href}}">{{ category.name }}</a>
+                  {% if category.children %}
+                    <ul class="dropdown">
+                      {% for child in category.children %}
+                        <li><a href="{{ child.href }}">{{ child.name }}</a>
+                          {% if child.children %}
+                            <ul class="dropdown">
+                              {% for grandchildren in child.children %}
+                                 <li><a href="{{ grandchildren.href }}">{{ grandchildren.name }}</a></li>
+                              {% endfor %}
+                            </ul>
+                           {% endif %}
+                          </li>
+                        {% endfor %}
                     </ul>
-					 {% endif %}
-                  </li>
-				  {% endfor %} 
-				  </ul>
-              </li>
-			   {% else %}
-					 <li><a href="{{ category.href }}">{{ category.name }}</a> </li>
-			   {% endif %}
-              {% endfor %}   
-				</ul>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
           </div>
         </div>
 <!-- Sidebar end -->
-
- 
