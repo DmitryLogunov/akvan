@@ -5,19 +5,16 @@
 /* СБрос стилей */
 
 .container{width:1170px;margin:0px auto;position:relative;}
-.container-information{width:1170px;margin:0px auto;position:relative;padding-bottom:208px;}
 .clearfix:after{content:'';display:block;clear:both;}
 .pull-left{float:left;}
 .pull-right{float:right;}
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{display:block;}
-body{line-height:1;height: 100%;}
+body{line-height:1;}
 ol, ul{list-style:none;}
 blockquote, q{quotes:none;}
 blockquote:before, blockquote:after,q:before, q:after{content:'';content:none;}
 table{border-collapse:collapse;border-spacing:0;}
-
-#main{height: 100%;position: relative;min-height: 100%;}
 
 /* Стили плагинов */
 
@@ -125,7 +122,7 @@ header .top .catalog-menu:hover .dropdown{display:block;}
 header .top .catalog-menu .dropdown > li:hover .dropdown-sub{display:block;}
 header .top .catalog-menu:after{position:absolute;top:5px;right:13px;content:url('../img/icons/dropdown-arrow.png');}
 header .bottom{font-size:12px;position:relative;padding-top:26px;}
-header .bottom .main-menu{overflow:hidden;max-width:901px;margin-bottom:24px;margin-left: 67px;}
+header .bottom .main-menu{overflow:hidden;max-width:901px;margin-bottom:24px;}
 header .bottom .main-menu > ul{display:table;}
 header .bottom .main-menu > ul > li{display:table-cell;height:26px;padding:0 16px;vertical-align:middle;border-left:1px solid #7f7f7f;}
 header .bottom .main-menu li:last-child{border-right:1px solid #7f7f7f;}
@@ -143,7 +140,7 @@ header .bottom input.search-btn{display:inline-block;width:20px;height:20px;marg
 header .bottom .search input[type='text']{display:inline-block;width:232px;height:25px;margin-left:16px;padding:8px;vertical-align:middle;border:none;background-color:#c9c9c9;}
 header .bottom .search input[type='search']{width:235px;height:27px;padding:8px;border:0;-webkit-border-radius:3px;border-radius:3px;background-color:#dfdfdf;-webkit-box-shadow:inset 2px 2px 1px rgba(0, 0, 0, .1);box-shadow:inset 2px 2px 1px rgba(0, 0, 0, .1);}
 header .bottom .logo{font-size:11px;padding-top:57px;padding-left:72px;text-transform:uppercase;color:#004f9e;}
-header .bottom .logo:before{position:absolute;top:27px;left:65px;content:url('../img/logo.png');}
+header .bottom .logo:before{position:absolute;top:27px;left:0;content:url('../img/icons/logo.png');}
 header .bottom .logo:hover{text-decoration:underline;}
 header .bottom form.select{overflow:hidden;}
 header .bottom .filter{padding:6px 8px;-webkit-border-radius:5px;border-radius:5px;-webkit-border-bottom-right-radius:0;border-bottom-right-radius:0;-webkit-border-bottom-left-radius:0;border-bottom-left-radius:0;background-color:#fff;}
@@ -175,7 +172,7 @@ header .bottom .filter select:hover{cursor:pointer;}
 .sidebar .recomend .products{padding:20px 12px;overflow:hidden;background:#fff;-webkit-border-bottom-left-radius:5px;border-bottom-left-radius:5px;-webkit-border-bottom-right-radius:5px;border-bottom-right-radius:5px;text-align:center;}
 .sidebar .recomend .products .view-all{text-transform:uppercase;font-size:10px;color:#6f6f6f;}
 .sidebar .recomend .products .view-all:hover{text-decoration:underline;}
-#main .wrap{padding:19px 0 29px 0;}
+#main .wrap{padding:39px 0 29px 0;}
 #main .banner-bottom{display:block;width:1170px;height:130px;margin-top:17px;border:solid 1px #ddd;-webkit-border-radius:7px;border-radius:7px;background:url('../img/banner-bottom.png') no-repeat center center;}
 #main .slideshow-brand-wrapper{width:1118px;margin:0 auto;padding-top:19px;}
 #main .slideshow-brand li div,#main .slideshow-brand li a{display:block;height:67px;padding-top:57px;background-repeat:no-repeat;background-position:center;}
@@ -453,12 +450,13 @@ header .bottom .filter select:hover{cursor:pointer;}
 .main .checkout .top .out .qty-goods{margin-top:20px;font-size:16px;color:#004f9e;}
 .main .checkout .top .out .sum{font-size:16px;color:#000;}
 .main .checkout .top .out .sum span{font-size:22px;}
-.main .checkout .bottom textarea{border:1px solid #ddd;-webkit-box-shadow:inset 0px 2px 3px 0px rgba(0, 0, 0, 0.1);box-shadow:inset 0px 2px 3px 0px rgba(0, 0, 0, 0.1);width:915px;height:130px;margin-top:11px;padding:15px 14px;resize:none;margin-bottom:11px;}
-.main .checkout .bottom button{color:#fff;font-size:18px;border:none;height:43px;}
-.main .checkout .bottom .accept{width:162px;background-color:#004f9e;background-image:-webkit-gradient( linear, left bottom, left top, from(#003161), to(#004f9e));background-image:-webkit-linear-gradient( bottom, #003161, #004f9e);background-image:-o-linear-gradient( bottom, #003161, #004f9e);background-image:linear-gradient( to top, #003161, #004f9e);background-repeat:no-repeat;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#004f9e', endColorstr='#003161', GradientType=0);}
-.main .checkout .bottom .accept:hover{background-color:#004f9e;background-image:-webkit-gradient( linear, left bottom, left top, color-stop(20%, #003161), color-stop(70%, #004f9e));background-image:-webkit-linear-gradient( bottom, #003161 20%, #004f9e 70%);background-image:-o-linear-gradient( bottom, #003161 20%, #004f9e 70%);background-image:linear-gradient( to top, #003161 20%, #004f9e 70%);background-repeat:no-repeat;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#004f9e', endColorstr='#003161', GradientType=0);}
-.main .checkout .bottom button.resum{width:145px;height:43px;color:#004f9e;margin-right:16px;background-color:#ffcc00;background-image:-webkit-gradient( linear, left bottom, left top, from(#ffcc00), to(#fff200));background-image:-webkit-linear-gradient( bottom, #ffcc00, #fff200);background-image:-o-linear-gradient( bottom, #ffcc00, #fff200);background-image:linear-gradient( to top, #ffcc00, #fff200);background-repeat:no-repeat;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff200', endColorstr='#ffcc00', GradientType=0);}
-.main .checkout .bottom button.resum:hover{background-color:#ffcc00;background-image:-webkit-gradient( linear, left bottom, left top, color-stop(20%, #ffcc00), color-stop(70%, #fff200));background-image:-webkit-linear-gradient( bottom, #ffcc00 20%, #fff200 70%);background-image:-o-linear-gradient( bottom, #ffcc00 20%, #fff200 70%);background-image:linear-gradient( to top, #ffcc00 20%, #fff200 70%);background-repeat:no-repeat;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff200', endColorstr='#ffcc00', GradientType=0);}
+ .checkout textarea{border:1px solid #ddd;-webkit-box-shadow:inset 0px 2px 3px 0px rgba(0, 0, 0, 0.1);box-shadow:inset 0px 2px 3px 0px rgba(0, 0, 0, 0.1);width:915px;height:130px;margin-top:11px;padding:15px 14px;resize:none;margin-bottom:11px;}
+  button{color:#fff;font-size:18px;border:none;height:43px;}
+  .accept{color:#fff;font-size:18px;border:none;height:43px;}
+ .accept{ background-color:#004f9e;background-image:-webkit-gradient( linear, left bottom, left top, from(#003161), to(#004f9e));background-image:-webkit-linear-gradient( bottom, #003161, #004f9e);background-image:-o-linear-gradient( bottom, #003161, #004f9e);background-image:linear-gradient( to top, #003161, #004f9e);background-repeat:no-repeat;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#004f9e', endColorstr='#003161', GradientType=0);}
+ .accept:hover{background-color:#004f9e;background-image:-webkit-gradient( linear, left bottom, left top, color-stop(20%, #003161), color-stop(70%, #004f9e));background-image:-webkit-linear-gradient( bottom, #003161 20%, #004f9e 70%);background-image:-o-linear-gradient( bottom, #003161 20%, #004f9e 70%);background-image:linear-gradient( to top, #003161 20%, #004f9e 70%);background-repeat:no-repeat;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#004f9e', endColorstr='#003161', GradientType=0);}
+ button.resum{width:145px;height:43px;color:#004f9e;margin-right:16px;background-color:#ffcc00;background-image:-webkit-gradient( linear, left bottom, left top, from(#ffcc00), to(#fff200));background-image:-webkit-linear-gradient( bottom, #ffcc00, #fff200);background-image:-o-linear-gradient( bottom, #ffcc00, #fff200);background-image:linear-gradient( to top, #ffcc00, #fff200);background-repeat:no-repeat;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff200', endColorstr='#ffcc00', GradientType=0);}
+ button.resum:hover{background-color:#ffcc00;background-image:-webkit-gradient( linear, left bottom, left top, color-stop(20%, #ffcc00), color-stop(70%, #fff200));background-image:-webkit-linear-gradient( bottom, #ffcc00 20%, #fff200 70%);background-image:-o-linear-gradient( bottom, #ffcc00 20%, #fff200 70%);background-image:linear-gradient( to top, #ffcc00 20%, #fff200 70%);background-repeat:no-repeat;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff200', endColorstr='#ffcc00', GradientType=0);}
 footer .container{min-height:202px;padding:26px;border:1px solid #ddd;-webkit-border-radius:7px;border-radius:7px;-webkit-border-bottom-right-radius:0;border-bottom-right-radius:0;-webkit-border-bottom-left-radius:0;border-bottom-left-radius:0;background-color:#fafafa;}
 footer .payment{position:relative;width:207px;height:113px;padding-left:1px;border-bottom:1px dotted #c3c3c3;}
 footer .payment:before{position:absolute;top:24px;left:-1px;content:url('../img/icons/payments.png');}
@@ -486,32 +484,3 @@ footer .social .fb:before{background-position:0 0;}
 footer .social .vk:before{background-position:0 -19px;}
 footer .social .tw:before{background-position:0 -38px;}
 footer .social .go:before{background-position:0 -57px;}
-
-.slideshow-brand > li > a.subaru {
-	background-image:url(../img/icons/Subaru.png);	
-}
-
-.slideshow-brand > li > a.chevrolet {
-	background-image:url(../img/icons/Chevrolet.png);
-}
-
-.slideshow-brand > li > a.citroen {
-	background-image:url(../img/icons/Citroen.png);
-}
-
-
-.slideshow-brand > li > a.kia {
-	background-image:url(../img/icons/Kia.png);
-}
-
-.slideshow-brand > li > a.renault {
-	background-image:url(../img/icons/Renault.png);
-}
-
-.slideshow-brand > li > a.opel {
-	background-image:url(../img/icons/Opel.png);
-}
-
-.slide-1 { background-image:url(../img/slide-1.png); }
-.slide-2 { background-image:url(../img/slide-2.png); }
-.slide-3 { background-image:url(../img/slide-3.png); }
