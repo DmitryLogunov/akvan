@@ -204,7 +204,11 @@ header .bottom .filter select:hover{cursor:pointer;}
 .raiting #star-3{left:63px;}
 .raiting #star-4{left:84px;}
 .raiting #star-5{left:105px;}
+<<<<<<< HEAD
 .content{width:892px;overflow:hidden;}
+=======
+.content{width:915px;overflow:hidden;}
+>>>>>>> develop
 .content h1{font-size:22px;margin-bottom:36px;}
 .content h2{font-size:16px;margin-bottom:23px;}
 .content p{line-height:17px;margin-bottom:25px;}
@@ -452,7 +456,11 @@ header .bottom .filter select:hover{cursor:pointer;}
 .main .checkout .top .out .sum span{font-size:22px;}
  .checkout textarea{border:1px solid #ddd;-webkit-box-shadow:inset 0px 2px 3px 0px rgba(0, 0, 0, 0.1);box-shadow:inset 0px 2px 3px 0px rgba(0, 0, 0, 0.1);width:915px;height:130px;margin-top:11px;padding:15px 14px;resize:none;margin-bottom:11px;}
   button{color:#fff;font-size:18px;border:none;height:43px;}
+<<<<<<< HEAD
   .accept{min-width: 162px;color:#fff;font-size:18px;border:none;height:43px;}
+=======
+  .accept{color:#fff;font-size:18px;border:none;height:43px;}
+>>>>>>> develop
  .accept{ background-color:#004f9e;background-image:-webkit-gradient( linear, left bottom, left top, from(#003161), to(#004f9e));background-image:-webkit-linear-gradient( bottom, #003161, #004f9e);background-image:-o-linear-gradient( bottom, #003161, #004f9e);background-image:linear-gradient( to top, #003161, #004f9e);background-repeat:no-repeat;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#004f9e', endColorstr='#003161', GradientType=0);}
  .accept:hover{background-color:#004f9e;background-image:-webkit-gradient( linear, left bottom, left top, color-stop(20%, #003161), color-stop(70%, #004f9e));background-image:-webkit-linear-gradient( bottom, #003161 20%, #004f9e 70%);background-image:-o-linear-gradient( bottom, #003161 20%, #004f9e 70%);background-image:linear-gradient( to top, #003161 20%, #004f9e 70%);background-repeat:no-repeat;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#004f9e', endColorstr='#003161', GradientType=0);}
  button.resum{width:145px;height:43px;color:#004f9e;margin-right:16px;background-color:#ffcc00;background-image:-webkit-gradient( linear, left bottom, left top, from(#ffcc00), to(#fff200));background-image:-webkit-linear-gradient( bottom, #ffcc00, #fff200);background-image:-o-linear-gradient( bottom, #ffcc00, #fff200);background-image:linear-gradient( to top, #ffcc00, #fff200);background-repeat:no-repeat;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff200', endColorstr='#ffcc00', GradientType=0);}

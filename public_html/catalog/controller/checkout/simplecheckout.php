@@ -55,7 +55,11 @@ class ControllerCheckoutSimpleCheckout extends SimpleController {
         $this->_templateData['action'] = 'index.php?'.$this->simplecheckout->getAdditionalParams().'route=checkout/simplecheckout&group='.$settingsGroup;
 
         $this->_templateData['heading_title'] = $this->language->get('heading_title');
+<<<<<<< HEAD
         $this->_templateData['left_menu'] = $this->load->controller('common/left_menu');			
+=======
+
+>>>>>>> develop
         $this->simplecheckout->clearPreventDeleteFlag();
         $this->simplecheckout->clearSimpleSession();
 
@@ -255,10 +259,17 @@ class ControllerCheckoutSimpleCheckout extends SimpleController {
         $this->_templateData['step_buttons']                     = json_encode($this->simplecheckout->getStepsButtons());
         $this->_templateData['display_agreement_checkbox']       = $this->simplecheckout->getSettingValue('displayAgreementCheckbox');
         $this->_templateData['agreement_checkbox_step']          = $this->simplecheckout->getSettingValue('agreementCheckboxStep');
+<<<<<<< HEAD
 		
         $this->_templateData['order_blocked']                    = $this->simplecheckout->isOrderBlocked();
         $this->_templateData['javascript_callback']              = $this->simplecheckout->getJavascriptCallback();
 		
+=======
+
+        $this->_templateData['order_blocked']                    = $this->simplecheckout->isOrderBlocked();
+        $this->_templateData['javascript_callback']              = $this->simplecheckout->getJavascriptCallback();
+
+>>>>>>> develop
         $this->_templateData['display_error']                    = $this->simplecheckout->displayError();
         $this->_templateData['has_error']                        = $this->simplecheckout->hasError('agreement');
         $this->_templateData['display_weight']                   = $this->simplecheckout->displayWeight();
@@ -283,7 +294,11 @@ class ControllerCheckoutSimpleCheckout extends SimpleController {
 
         $this->_templateData['popup']                   = !empty($args['popup']) ? true : (isset($this->request->get['popup']) ? true : false);
         $this->_templateData['as_module']               = !empty($args['module']) ? true : (isset($this->request->get['module']) ? true : false);
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> develop
         $this->_templateData['text_proceed_payment']    = $this->language->get('text_proceed_payment');
         $this->_templateData['text_payment_form_title'] = $this->language->get('text_payment_form_title');
         $this->_templateData['text_need_save_changes']  = $this->language->get('text_need_save_changes');
@@ -885,7 +900,11 @@ class ControllerCheckoutSimpleCheckout extends SimpleController {
         $data['telephone']              = $customer_info['telephone'];
         $data['fax']                    = !empty($customer_info['fax']) ? $customer_info['fax'] : '';
         $data['custom_field']           = isset($customer_info['custom_field']) ? $customer_info['custom_field'] : array();
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> develop
         $data['payment_firstname']      = $payment_address['firstname'];
         $data['payment_lastname']       = $payment_address['lastname'];
         $data['payment_company']        = $payment_address['company'];

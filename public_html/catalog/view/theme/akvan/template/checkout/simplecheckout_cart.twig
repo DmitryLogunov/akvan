@@ -1,6 +1,7 @@
 <div class="simplecheckout-block" id="simplecheckout_cart" {{ hide ? 'data-hide="true"' : '' }} {{ has_error ? 'data-error="true"' : '' }}>
 
 <!--	Sort block begin	-->
+<<<<<<< HEAD
 								<!-- <div class="sortable clearfix"> -->
 									<!-- <div class="pull-left"> -->
 										<!-- <span>Товары в корзине:</span> -->
@@ -13,6 +14,20 @@
 										<!-- <a href="javascript:void(0)" class="print">Распечатать состав заказа</a> -->
 									<!-- </div> -->
 								<!-- </div> -->
+=======
+								<div class="sortable clearfix">
+									<div class="pull-left">
+										<span>Товары в корзине:</span>
+										<ul>
+											<li><a href="javascript:void(0)">Готовые к заказу (<span>1</span>)</a></li>
+											<li><a href="javascript:void(0)">Отложено (<span>0</span>)</a></li>
+										</ul>
+									</div>
+									<div class="pull-right clearfix">
+										<a href="javascript:void(0)" class="print">Распечатать состав заказа</a>
+									</div>
+								</div>
+>>>>>>> develop
 								<!--	Sort block end	-->
 {% if display_header %}
     <div class="checkout-heading panel-heading">{{ text_cart }}</div>
