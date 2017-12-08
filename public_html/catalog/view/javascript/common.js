@@ -184,6 +184,34 @@ var cart = {
 			}
 		});
 	},
+	'addc': function(product_id, quantity) {
+		$.ajax({
+			url: 'index.php?route=checkout/cart/add',
+			type: 'post',
+			data: 'product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
+			dataType: 'json',
+			beforeSend: function() {
+				// $('#cart > button').button('loading');
+			},
+			complete: function() {
+				// $('#cart > button').button('reset');
+			},
+			success: function(json) {
+				$('.alert-dismissible, .text-danger').remove();
+
+				if (json['redirect']) {
+					location = json['redirect'];
+				}
+
+				if (json['success']) {
+					location = '/index.php?route=checkout/simplecheckout';
+				}
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
+				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			}
+		});
+	},
 	'update': function(key, quantity) {
 		$.ajax({
 			url: 'index.php?route=checkout/cart/edit',

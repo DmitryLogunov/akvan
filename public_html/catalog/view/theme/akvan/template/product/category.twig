@@ -1,0 +1,205 @@
+{{ header }}
+<!-- Header end -->
+	<!-- Main begin-->
+	<div id="main">
+		<div class="container">
+			<div class="wrap clearfix">
+				{{ left_menu }}
+			<div class="content pull-right">
+					<!-- Breadcrumbs begin -->
+					<div class="breadcrumbs">
+						<ul>
+							 {% for breadcrumb in breadcrumbs %}
+									<li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+							{% endfor %}
+						</ul>
+					</div>
+					<!-- Breadcrumbs end -->
+					<!-- Block main begin -->
+					<div class="main" id="product-category">
+						<!-- Block category begin -->
+						<div class="category clearfix">
+							<h1>{{ heading_title }}</h1>		
+						{% if newproducts %}							
+						<div class="block-wrapper">
+								<div class="advice">
+									<h4>Новые поступления</h4>
+									<div class="items">
+									{% for new in newproducts %}
+										<div class="item ">
+											<img src="{{ new.thumb }}" alt="pic 4">
+											<a href="{{ new.href }}" class="head" title="Решетка рад imp grb">{{ new.name }} </a>
+											<p>{{ new.description }} </p>
+											<a href="javascript:void(0)" class="price"><span>{{ new.price }}</a>
+										</div>	
+									{% endfor %}	
+									</div>
+									<!-- <a href="javascript:void(0)" class="view-all" title="Посмотреть все">Посмотреть все »</a> -->
+								</div>
+							</div>
+						{% endif %}
+							{% if newproducts %}	
+							<div class="category-body">
+								<!--	Sort block begin	-->
+								<div class="sortable clearfix">
+									<!-- <div class="pull-left"> -->
+										<!-- <ul> -->
+											<!-- <li><a href="javascript:void(0)">все товары</a></li> -->
+											<!-- <li><a class="active" href="javascript:void(0)">в наличии</a></li> -->
+											<!-- <li><a href="javascript:void(0)">новинки</a></li> -->
+										<!-- </ul> -->
+									<!-- </div> -->
+							 
+									<div class="pull-right clearfix">
+										<span>На странице:</span>
+										<ul>
+											 {% for limits in limits %}
+              {% if limits.value == limit %}
+              
+              
+              
+             <li><a class="active" href="{{ limits.href }}">{{ limits.text }}</a></li>
+              
+              
+              
+              {% else %}
+              
+              
+              <li><a href="{{ limits.href }}">{{ limits.text }}</a></li>
+              
+              
+              
+              {% endif %} 
+              {% endfor %} 
+										</ul>
+									</div>
+								</div>
+								<!--	Sort block end	-->
+								<!--	List block begin	-->
+								<div class="list">
+									<table>
+										<tr>
+											<th class="col-1">Фото</th>
+											<th class="col-2">Наименование<a href="javascript:void(0)" class="arrow"></a></th>
+											<th class="col-3">Производитель<a href="javascript:void(0)" class="arrow"></a></th>
+											<th class="col-4">Наличие<a href="javascript:void(0)" class="arrow"></a></th>
+											<th class="col-5 red">Скидка<a href="javascript:void(0)" class="arrow"></a></th>
+											<th class="col-6 red">Цена со скидкой<a href="javascript:void(0)" class="arrow"></a></th>
+											<th class="col-7">Цена без скидки<a href="javascript:void(0)" class="arrow"></a></th>
+											<th class="col-8">Кол-во</th>
+											<th class="col-9 col-cart"></th>
+										</tr>
+									 {% for product in products %}	
+										<tr>
+											<td>
+												<div class="wrap-img">
+													<img src="{{ product.popup }}" alt="">
+													<div class="img-big" style="display: none;">
+														<div class="arrow-left"></div>
+														<img src="{{ product.popup }}" alt="{{ product.name }}">
+													</div>
+												</div>
+											</td>
+											<td class="id">
+												{% if  product.sku %}<span>Артикул: {{ product.sku }}</span>{% endif %}
+												<a href="{{ product.href }}">{{ product.name }}</a>
+											</td>
+											<td><a href="javascript:void(0)">{{ product.name }}</a></td>
+											{% if not product.stock %}
+											<td class="none">Нет</td>
+											{% else %}
+											<td class="in-stock">Есть</td>
+											 {% endif %}
+									 
+											{% if not product.special %}
+											<td class="sale">нет</td>
+											<td class="sale"><strong> {{ product.price }}</td>
+											<td class="price"><strong> {{ product.price }}</td>
+											{% else %}
+											<td class="sale">{{  product.profit }}%</td>
+											<td class="sale"><strong> {{ product.special }}</td>
+											<td class="price"><strong> {{ product.price }}</td>
+											{% endif %}
+											<td>
+												<div class="goods">
+													<span class="down"></span>
+													<input type="text" id="quanity{{ product.product_id }}" class="counter" value="{{ product.minimum }}" min="{{ product.minimum }}" data-count="{{ product.minimum }}" />
+													<span class="up"></span>
+												</div>
+											</td>
+											<td><a class="buy" href="javascript:void(0)" onclick="quant = $('#quanity{{ product.product_id }}').val(); alert(quant); cart.add('{{ product.product_id }}', quant);" ></a></td>
+										</tr>
+									{% endfor %}	 
+									</table>
+								</div>
+								<!--	List block end	-->
+								<!-- Pagination begin -->
+								{{ pagination }}
+								
+								<!-- Pagination end -->
+							</div>	
+							{% endif %}
+							{% if not categories and not products %}
+								<p>{{ text_empty }}</p>
+							{% endif %}	
+							
+							<!-- Block category-body end -->
+							<!-- Block items begin -->
+							{{ content_bottom }}
+							
+							<!-- Block items end -->
+							<!-- Block items begin -->
+							<!-- <div class="block-wrapper"> -->
+								<!-- <div class="advice"> -->
+									<!-- <h4>Еше товары этой категории</h4> -->
+									<!-- <div class="items"> -->
+										<!-- <div class="item "> -->
+											<!-- <img src="img/pic-1.png" alt="pic 1"> -->
+											<!-- <a href="javascript:void(0)" class="head" title="Решетка рад imp grb">Решетка рад imp grb </a> -->
+											<!-- <p>Наш интернет магазин - предлагает только профессиональные...</p> -->
+											<!-- <a href="javascript:void(0)" class="price"><span>28 712</span> руб.</a> -->
+										<!-- </div> -->
+										<!-- <div class="item"> -->
+											<!-- <img src="img/pic-2.png" alt="pic 2"> -->
+											<!-- <a href="javascript:void(0)" class="head" title="Решетка рад imp grb">Решетка рад imp grb </a> -->
+											<!-- <p>Наш интернет магазин - предлагает только профессиональные...</p> -->
+											<!-- <a href="javascript:void(0)" class="price"><span>28 712</span> руб.</a> -->
+										<!-- </div> -->
+										<!-- <div class="item"> -->
+											<!-- <img src="img/pic-3.png" alt="pic 3"> -->
+											<!-- <a href="javascript:void(0)" class="head" title="Решетка рад imp grb">Решетка рад imp grb </a> -->
+											<!-- <p>Наш интернет магазин - предлагает только профессиональные...</p> -->
+											<!-- <a href="javascript:void(0)" class="price"><span>28 712</span> руб.</a> -->
+										<!-- </div> -->
+									<!-- </div> -->
+									<!-- <a href="javascript:void(0)" class="view-all" title="Посмотреть все">Посмотреть все »</a> -->
+								<!-- </div> -->
+							<!-- </div> -->
+							<!-- Block items end -->
+							<div class="category-post clearfix">
+								<div class="pull-left">
+									<h2>Заглавие данного текста</h2>
+									<p>Компанией накоплен большой опыт в подготовке и полной комплектации спортивных автомобилей: кузовные работы, программное обеспечение, тюнинг и другие необходимые настройки. Используя оборудование, не имеющее аналогов в России, высококвалифицированные специалисты компании "УРТ" производят разработку комплектующих деталей для спортивных автомобилей группы N и успешно внедряют свои разработки на практике.</p>
+									<p>Уникальная производственно-техническая база компании "УРТ" ("Успенский Ралли Техника") способствовала тому, что в 2005 г. компания получила от STI (Subaru Tecnica International) агентский контракт на подготовку и </p>
+								</div>
+								<div class="pull-right">
+									<h2>Заглавие данного текста</h2>
+									<p>Компанией накоплен большой опыт в подготовке и полной комплектации спортивных автомобилей: кузовные работы, программное обеспечение, тюнинг и другие необходимые настройки. Используя оборудование, не имеющее аналогов в России, высококвалифицированные специалисты компании "УРТ" производят разработку комплектующих деталей для спортивных автомобилей группы N и успешно внедряют свои разработки на практике.</p>
+									<p>Уникальная производственно-техническая база компании "УРТ" ("Успенский Ралли Техника") способствовала тому, что в 2005 г. компания получила от STI (Subaru Tecnica International) агентский контракт на подготовку и </p>
+								</div>
+							</div>
+						</div>
+						<!-- Block category end -->
+					</div>
+					<!-- Block main end -->
+				</div>
+				<!-- Content end -->
+				<a href="javascript:void(0)" class="banner-bottom pull-left" title="banner"></a>
+			</div>
+		</div>
+	</div>
+	<!-- Main end-->
+	
+ 
+ 
+{{ footer }} 
