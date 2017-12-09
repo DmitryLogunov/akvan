@@ -1,18 +1,20 @@
 <div class="simplecheckout-block" id="simplecheckout_cart" {{ hide ? 'data-hide="true"' : '' }} {{ has_error ? 'data-error="true"' : '' }}>
 
 <!--	Sort block begin	-->
-								<div class="sortable clearfix">
-									<div class="pull-left">
-										<span>Товары в корзине:</span>
-										<ul>
-											<li><a href="javascript:void(0)">Готовые к заказу (<span>1</span>)</a></li>
-											<li><a href="javascript:void(0)">Отложено (<span>0</span>)</a></li>
-										</ul>
-									</div>
-									<div class="pull-right clearfix">
-										<a href="javascript:void(0)" class="print">Распечатать состав заказа</a>
-									</div>
-								</div>
+ 
+								<!-- <div class="sortable clearfix"> -->
+									<!-- <div class="pull-left"> -->
+										<!-- <span>Товары в корзине:</span> -->
+										<!-- <ul> -->
+											<!-- <li><a href="javascript:void(0)">Готовые к заказу (<span>1</span>)</a></li> -->
+											<!-- <li><a href="javascript:void(0)">Отложено (<span>0</span>)</a></li> -->
+										<!-- </ul> -->
+									<!-- </div> -->
+									<!-- <div class="pull-right clearfix"> -->
+										<!-- <a href="javascript:void(0)" class="print">Распечатать состав заказа</a> -->
+									<!-- </div> -->
+								<!-- </div> -->
+  
 								<!--	Sort block end	-->
 {% if display_header %}
     <div class="checkout-heading panel-heading">{{ text_cart }}</div>
@@ -57,11 +59,19 @@
 											<td class="none">Нет</td>
 											{% else %}
 											<td class="in-stock">Есть</td>
-											 {% endif %}
-											<td class="sale">10%</td>
+											{% endif %}
+											
+											{% if not product['special'] %} 
+											<td class="sale">нет</td>
 											<td id="quantity">{{ product['quantity'] }}</td>
-											<td class="price"><strong>{{ product['price'] }}</strong></td>
-											<td class="sale"><strong>{{ product['price'] }}</strong></td>
+											<td class="price"><strong>{{ product['pricez'] }}</strong></td>
+											<td class="sale"><strong>{{ product['pricez'] }}</strong></td>
+											{% else %}
+											<td class="sale">{{ product['profit'] }}%</td>
+											<td id="quantity">{{ product['quantity'] }}</td>
+											<td class="price"><strong>{{ product['pricez'] }}</strong></td>
+											<td class="sale"><strong>{{ product['special'] }}</strong></td>
+											{% endif %}
 											<!-- <td><a href="javascript:void(0)" class="defer">отложить</a></td> -->
 											
 											<td><a class="del" data-onclick="removeProduct" data-product-key="{{ product['cart_id'] is not empty ? product['cart_id'] : product['key'] }}" data-toggle="tooltip"  href="javascript:void(0)"></a></td>

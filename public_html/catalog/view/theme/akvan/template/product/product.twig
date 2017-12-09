@@ -1,0 +1,330 @@
+{{ header }}
+<!-- Header end -->
+	<!-- Main begin-->
+	<div id="main">
+		<div class="container">
+			<div class="wrap clearfix">
+				{{ left_menu }}
+				<!-- Sidebar end -->
+				<!-- Content begin -->
+				<div class="content pull-right">
+					<!-- Breadcrumbs begin -->
+					<div class="breadcrumbs">
+						<ul>
+							{% for breadcrumb in breadcrumbs %}
+								<li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+							{% endfor %}
+						</ul>
+					</div>
+					<!-- Breadcrumbs end -->
+					<!-- Block main begin -->
+					<div class="main">
+						<!-- Block product begin -->
+						<div  id="product-product" class="product clearfix">
+							<h1>{{ heading_title }}</h1>
+							<div class="pull-left">
+								<!-- Photo slider begin -->
+	 
+							{% if thumb or images %}
+								<div class="photos">
+									<div class="lightbox-photo">
+										<div style="display: none;">
+												<div class="box-modal" id="zoomPhoto">
+													<div class="box-modal_close arcticmodal-close"></div>
+													<div class="slideshow-photo-big-wrapper">
+														<ul class="slideshow-photo-big">
+														  {% if thumb %}
+									<li><div><img src="{{ popup }}" alt="{{ heading_title }}"></div></li>
+									  {% endif %}
+														{% if images %}
+														{% for image in images %}
+															<li><div><img src="{{ image.popup }}" alt="{{ heading_title }}"></div></li>
+														{% endfor %}
+														{% endif %}
+														</ul>
+													</div>
+												</div>
+										</div>
+									  {% if thumb %}
+										<div class="big"><img src="{{ popup }}" alt="{{ heading_title }}"></div>
+									  {% endif %}
+									</div>
+									<div class="slideshow-photo-wrapper">
+										<ul class="slideshow-photo">
+										  {% if thumb %}
+											<li><div class="active"><img src="{{ popup }}" alt="{{ heading_title }}"></div></li>
+										  {% endif %}
+										  {% if images %}
+										  {% for image in images %}
+											<li><div><img src="{{ image.popup }}" alt="{{ heading_title }}"></div></li>
+										  {% endfor %}
+										  {% endif %}
+										</ul>
+									</div>
+								</div>
+								{% endif %}
+								<!-- Photo slider end -->
+								<!-- Raiting begin -->
+		 
+								<div class="product-rating">
+									<span>Рейтинг:</span>									
+									<div class="raiting">
+										<input id="star-4" type="radio" class="rt" value="5" name="reviewStars" {% if rating == 5 %} checked {% endif %} >
+										<label title="Круто" for="star-4"></label>
+										<input id="star-3" type="radio" class="rt" value="4" name="reviewStars" {% if rating == 4 %} checked {% endif %} >
+										<label title="Хорошо" for="star-3"></label>
+										<input id="star-2" type="radio" class="rt" value="3" name="reviewStars" {% if rating == 3 %} checked {% endif %} >
+										<label title="Нормально" for="star-2"></label>
+										<input id="star-1" type="radio" class="rt" value="2" name="reviewStars" {% if rating == 2 %} checked {% endif %} >
+										<label title="Неочень" for="star-1"></label>
+										<input id="star-0" type="radio" class="rt" value="1" name="reviewStars" {% if rating == 1 %} checked {% endif %} >
+										<label title="Плохо" for="star-0"></label>
+									</div>									
+									<span class="viewrs">(проголосовало {{ rt_total }})</span>
+									<span id="review"></span>
+								</div>
+								<!-- Raiting end -->
+								<!-- Block items begin -->
+								<div class="block-wrapper">
+									<div class="install">
+										<h4>Где установить</h4>
+										<div class="head-block">
+											<p><strong>Торговый центр "Керамик Сити"</strong></p>
+											<p>Киев, ул. Булаховского 4, <br><strong>тел. 392-29-41, 423-00-03, 494-09-64</strong></p>
+											<a href="javascript:void(0)" class="map-drive" title="">Карта проезда</a>
+										</div>
+										<div class="body-block">
+											<p>Запишитесь на установку данного оборудования, заполнив форму ниже</p>
+											<form class="clearfix">
+												<div class="pull-left">
+													<label for="name">Имя:</label>
+													<label for="phone">Телефон:</label>
+													<label for="id">Вы заказали:</label>
+												</div>
+												<div class="pull-right">
+													<input type="text" name="name" id="name">
+													<input type="tel" name="phone"  id="phone">
+													<input type="text" name="id" id="id" value="Артикул: {{ sku }}" disabled>
+												</div>
+												<button type="button" name="zapis">Записаться</button>
+											</form>
+										</div>
+									</div>
+								</div>
+								<!-- Block items end -->
+							</div>
+						<!-- Left col end -->
+							<!-- Right col begin -->
+							<div class="pull-right">
+								<!-- Block Offer begin -->
+						 
+									<div class="offer">
+										<table>
+											<tr>
+												<th>Артикул</th>
+												<th>{{ sku }}</th>
+											</tr>
+											<tr>
+												<td>Наличие</td>
+												{% if stock %}
+												<td class="in-stock">Есть в наличии</td>
+												{% else %}
+												<td class="none">Нет</td>
+												{% endif %}
+											</tr>
+											<tr>
+												<td>Цена</td>
+												<td class="price">{{ price }}</td>
+											</tr>
+											{% if special %}
+											<tr>
+												<td>Скидка</td>
+												<td class="sale">{{ profit }}%</td>
+											</tr>
+											
+											<tr>
+												<td>Цена со скидкой</td>
+												<td class="sale">{{ special }}</td>
+											</tr>
+											{% endif %}
+											<tr>
+												<td>Количество</td>
+												<td>
+													<div class="goods">
+													<span class="down"></span>
+													<input type="text" class="counter" value="{{minimum}}" min="{{minimum}}" data-count="{{minimum}}" />
+													<span class="up"></span>
+												</div>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<!-- Buttons Offer begin -->
+									<div class="control">
+										<button class="in-cart" onclick="cart.add('{{ product_id }}', '{{ minimum }}');" name="in-cart"  >В корзину</button>
+										<button class="checkout" onclick="cart.addc('{{ product_id }}', '{{ minimum }}');"  name="checkout"  >Оформить заказ</button>
+										<a href="javascript:void(0)" class="question" title="">Задать вопрос</a>
+									</div>
+									<!-- Buttons Offer end -->
+							 
+								<!-- Block Offer begin -->
+								<!-- Block description begin -->
+								<div class="description">
+									<h2>Описание товара</h2>
+									{{description}}
+									<!-- Block asking begin -->
+									<div class="ask clearfix">
+										<div class="pull-left">
+											<p>Чтобы сделать заказ - позвоните нашему менеджеру или воспользуйтесь формой</p>
+										</div>
+										<div class="pull-right clearfix">
+											<span>8 (097) 90-249-03</span>
+											<a href="javascript:void(0)" title="">Задать вопрос</a>
+										</div>
+									</div>
+									<!-- Block asking end -->
+								</div>
+								<!-- Block description end -->
+							</div>
+							<!-- Right col end -->
+						</div>
+      <!-- Block product end -->
+						<!-- Block items begin -->
+						<div class="block-wrapper">
+							<div class="advice">
+								<h4>До меня уже купили</h4>
+								<div class="items">
+								{% for product in products %}
+									<div class="item ">
+										<img src="{{product.thumb}}" alt="{{product.name}}">
+										<a href="{{product.href}}" class="head" title="{{product.name}}">{{product.name}}</a>
+										<p>{{product.description}}</p>
+										<a href="{{product.href}}" class="price"><span>{{product.price}}</a>
+									</div>
+								{% endfor %}
+								</div>
+							</div>
+						</div>
+						<!-- Block items end -->
+						<!-- Block items begin -->
+						 {{ content_bottom }}
+						
+						<!-- Block items end -->
+					</div>
+					<!-- Block main end -->
+				</div>
+				<!-- Content end -->
+				<a href="javascript:void(0)" class="banner-bottom pull-left" title="banner"></a>	
+			</div>
+		</div>
+	</div>
+	<!-- Main end-->
+	<!-- Footer begin -->
+ 
+<script type="text/javascript"><!--
+$('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
+	$.ajax({
+		url: 'index.php?route=product/product/getRecurringDescription',
+		type: 'post',
+		data: $('input[name=\'product_id\'], input[name=\'quantity\'], select[name=\'recurring_id\']'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#recurring-description').html('');
+		},
+		success: function(json) {
+			$('.alert-dismissible, .text-danger').remove();
+
+			if (json['success']) {
+				$('#recurring-description').html(json['success']);
+			}
+		}
+	});
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('#button-cart').on('click', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/cart/add',
+		type: 'post',
+		data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-cart').button('loading');
+		},
+		complete: function() {
+			$('#button-cart').button('reset');
+		},
+		success: function(json) {
+			$('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+			if (json['error']) {
+				if (json['error']['option']) {
+					for (i in json['error']['option']) {
+						var element = $('#input-option' + i.replace('_', '-'));
+
+						if (element.parent().hasClass('input-group')) {
+							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						} else {
+							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						}
+					}
+				}
+
+				if (json['error']['recurring']) {
+					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+			}
+
+			if (json['success']) {
+				$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+				$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+				$('html, body').animate({ scrollTop: 0 }, 'slow');
+
+				$('#cart > ul').load('index.php?route=common/cart/info ul li');
+			}
+		},
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+	});
+});
+//--></script> 
+ 
+<script type="text/javascript"><!--
+ 
+ 
+$('.rt').on('click', function() {
+	rating = $(this).val();
+	$.ajax({
+		url: 'index.php?route=product/product/write&product_id={{ product_id }}',
+		type: 'post',
+		dataType: 'json',
+		data: 'name=rating&text=rating&rating='+rating,
+		beforeSend: function() {
+			<!-- $('#button-review').button('loading'); -->
+		},
+		complete: function() {
+			<!-- $('#button-review').button('reset'); -->
+		},
+		success: function(json) {
+			 
+
+			if (json['error']) {
+				$('#review').html('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
+			}
+
+			if (json['success']) {
+				$('#review').html('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i>' + json['success'] + '</div>');
+			}
+		}
+	});
+});
+ 
+//--></script> 
+{{ footer }} 

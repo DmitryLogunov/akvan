@@ -282,7 +282,22 @@ class ControllerCheckoutSimpleCheckoutCart extends SimpleController {
                         $recurring .= sprintf($this->language->get('text_payment_until_canceled_description'), $this->simplecheckout->formatCurrency($this->tax->calculate($product['recurring']['price'] * $product['quantity'], $product['tax_class_id'], $this->config->get('config_tax'))), $product['recurring']['cycle'], $frequencies[$product['recurring']['frequency']], $product['recurring']['duration']);
                     }
                 }
+				$this->load->model('catalog/product');
+				$product_info = $this->model_catalog_product->getProduct($product['product_id']);
+				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+				$pricez = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+				} else {
+				$pricez = false;
+				}
 
+				if ((float)$product_info['special']) {
+					$special = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+					$profit  = round((1 - $special / $pricez) * 100, 1); 
+				} else {
+				$special = false;
+				$profit = false;
+				}
+				
                 $this->_templateData['products'][] = array(
                     'key'       => isset($product['key']) ? $product['key'] : '',
                     'cart_id'   => isset($product['cart_id']) ? $product['cart_id'] : '',
@@ -296,6 +311,9 @@ class ControllerCheckoutSimpleCheckoutCart extends SimpleController {
                     'stock'     => $product['stock'] ? true : !(!$this->config->get('config_stock_checkout') || $this->config->get('config_stock_warning')),
                     'reward'    => ($product['reward'] ? sprintf($this->language->get('text_points'), $product['reward']) : ''),
                     'price'     => $price,
+                    'profit'     => $profit,
+                    'special'     => $special,
+                    'pricez'     => $pricez,
                     'total'     => $total,
                     'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id'])
                 );
