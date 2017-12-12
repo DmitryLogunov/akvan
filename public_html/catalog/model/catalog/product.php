@@ -187,7 +187,12 @@ class ModelCatalogProduct extends Model {
 		} else {
 			$sql .= " ORDER BY p.sort_order";
 		}
-
+		
+		if (isset($_GET['brand'])) {
+			$sql .= "AND m.manufacturer_id='" .$_GET['brand']. "'";
+		}
+		
+		
 		if (isset($data['order']) && ($data['order'] == 'DESC')) {
 			$sql .= " DESC, LCASE(pd.name) DESC";
 		} else {

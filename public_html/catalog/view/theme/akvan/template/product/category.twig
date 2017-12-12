@@ -21,22 +21,22 @@
 						<div class="category clearfix">
 							<h1>{{ heading_title }}</h1>		
 						{% if newproducts %}							
-						<div class="block-wrapper">
-								<div class="advice">
-									<h4>Новые поступления</h4>
-									<div class="items">
-									{% for new in newproducts %}
-										<div class="item ">
-											<img src="{{ new.thumb }}" alt="pic 4">
-											<a href="{{ new.href }}" class="head" title="Решетка рад imp grb">{{ new.name }} </a>
-											<p>{{ new.description }} </p>
-											<a href="javascript:void(0)" class="price"><span>{{ new.price }}</a>
-										</div>	
-									{% endfor %}	
-									</div>
+						<!-- <div class="block-wrapper"> -->
+								<!-- <div class="advice"> -->
+									<!-- <h4>Новые поступления</h4> -->
+									<!-- <div class="items"> -->
+									<!-- {% for new in newproducts %} -->
+										<!-- <div class="item "> -->
+											<!-- <img src="{{ new.thumb }}" alt="pic 4"> -->
+											<!-- <a href="{{ new.href }}" class="head" title="Решетка рад imp grb">{{ new.name }} </a> -->
+											<!-- <p>{{ new.description }} </p> -->
+											<!-- <a href="javascript:void(0)" class="price"><span>{{ new.price }}</a> -->
+										<!-- </div>	 -->
+									<!-- {% endfor %}	 -->
+									<!-- </div> -->
 									<!-- <a href="javascript:void(0)" class="view-all" title="Посмотреть все">Посмотреть все »</a> -->
-								</div>
-							</div>
+								<!-- </div> -->
+							<!-- </div> -->
 						{% endif %}
 							{% if newproducts %}	
 							<div class="category-body">
@@ -76,16 +76,17 @@
 								</div>
 								<!--	Sort block end	-->
 								<!--	List block begin	-->
+		 
 								<div class="list">
 									<table>
 										<tr>
 											<th class="col-1">Фото</th>
-											<th class="col-2">Наименование<a href="javascript:void(0)" class="arrow"></a></th>
-											<th class="col-3">Производитель<a href="javascript:void(0)" class="arrow"></a></th>
-											<th class="col-4">Наличие<a href="javascript:void(0)" class="arrow"></a></th>
-											<th class="col-5 red">Скидка<a href="javascript:void(0)" class="arrow"></a></th>
+											<th class="col-2">Наименование<a href="{{ s_name }}" class="arrow {{ arrowup_n }}"></a></th>
+											<th class="col-3">Производитель<a href="{{ brand }}" class="arrow {{ arrowup_b }}"></a></th>
+											<th class="col-4">Наличие<a href="{{ s_quantity }}" class="arrow {{ arrowup_q }}"></a></th>
+											<th class="col-5">Скидка </th>
 											<th class="col-6 red">Цена со скидкой<a href="javascript:void(0)" class="arrow"></a></th>
-											<th class="col-7">Цена без скидки<a href="javascript:void(0)" class="arrow"></a></th>
+											<th class="col-7">Цена без скидки<a href="{{ sort_price }}" class="arrow {{ arrowup_p }}""></a></th>
 											<th class="col-8">Кол-во</th>
 											<th class="col-9 col-cart"></th>
 										</tr>
@@ -127,7 +128,7 @@
 													<span class="up"></span>
 												</div>
 											</td>
-											<td><a class="buy" href="javascript:void(0)" onclick="quant = $('#quanity{{ product.product_id }}').val(); alert(quant); cart.add('{{ product.product_id }}', quant);" ></a></td>
+											<td><a class="buy" href="javascript:void(0)" onclick="quant = $('#quanity{{ product.product_id }}').val();  cart.add('{{ product.product_id }}', quant);" ></a></td>
 										</tr>
 									{% endfor %}	 
 									</table>
@@ -140,7 +141,7 @@
 							</div>	
 							{% endif %}
 							{% if not categories and not products %}
-								<p>{{ text_empty }}</p>
+								<p>Нет товаров в данной категории!</p>
 							{% endif %}	
 							
 							<!-- Block category-body end -->
