@@ -492,12 +492,11 @@ footer .social .fb:before{background-position:0 0;}
 footer .social .vk:before{background-position:0 -19px;}
 footer .social .tw:before{background-position:0 -38px;}
 footer .social .go:before{background-position:0 -57px;}
-
 .arrowup {
 	-webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
 	transform: rotate(180deg);
 	margin-left: 5px;
 }
