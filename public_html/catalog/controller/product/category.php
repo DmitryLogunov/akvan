@@ -331,7 +331,7 @@ class ControllerProductCategory extends Controller {
 					'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=rating&order=DESC' . $url)
 				);
 
-				$data['sorts'][] = array(
+			$data['sorts'][] = array(
 					'text'  => $this->language->get('text_rating_asc'),
 					'value' => 'rating-ASC',
 					'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=rating&order=ASC' . $url)
@@ -349,7 +349,40 @@ class ControllerProductCategory extends Controller {
 				'value' => 'p.model-DESC',
 				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.model&order=DESC' . $url)
 			);
-
+			
+			if(isset($this->request->get['order']) and $this->request->get['sort'] == 'p.price' and $this->request->get['order'] == 'ASC') {
+			$data['sort_price'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.price&order=DESC' . $url);
+			$data['arrowup_p'] = 'arrowup';
+			}else{
+			$data['sort_price'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.price&order=ASC' . $url);
+			$data['arrowup_p'] = '';
+			}
+			
+			if(isset($this->request->get['order']) and $this->request->get['sort'] == 'pd.name' and $this->request->get['order'] == 'ASC') {
+			$data['s_name'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=pd.name&order=DESC' . $url);
+			$data['arrowup_n'] = 'arrowup';
+			}else{
+			$data['s_name'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=pd.name&order=ASC' . $url);
+			$data['arrowup_n'] = '';
+			}
+			
+			if(isset($this->request->get['order']) and $this->request->get['sort'] == 'brand' and $this->request->get['order'] == 'ASC') {
+			$data['brand'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=brand&order=DESC' . $url);
+			$data['arrowup_b'] = 'arrowup';
+			}else{
+			$data['brand'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=brand&order=ASC' . $url);
+			$data['arrowup_b'] = '';
+			}
+			
+			if(isset($this->request->get['order']) and $this->request->get['sort'] == 'p.quantity' and $this->request->get['order'] == 'ASC') {
+			$data['s_quantity'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.quantity&order=DESC' . $url);
+			$data['arrowup_q'] = 'arrowup';
+			}else{
+			$data['s_quantity'] =  $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.quantity&order=ASC' . $url);
+			$data['arrowup_q'] = ' ';
+			}
+		 
+			
 			$url = '';
 
 			if (isset($this->request->get['filter'])) {
