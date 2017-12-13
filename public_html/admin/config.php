@@ -1,11 +1,11 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://akvan.local/admin/');
-define('HTTP_CATALOG', 'http://akvan.local/');
+define('HTTP_SERVER', 'http://akvan.infodemo.ru/admin/');
+define('HTTP_CATALOG', 'http://akvan.infodemo.ru/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://akvan.local/admin/');
-define('HTTPS_CATALOG', 'http://akvan.local/');
+define('HTTPS_SERVER', 'http://akvan.infodemo.ru/admin/');
+define('HTTPS_CATALOG', 'http://akvan.infodemo.ru/');
 
 // DIR
 define('DIR_APPLICATION', '/var/www/akvan/public_html/admin/');
