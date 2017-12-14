@@ -61,7 +61,7 @@ $(document).ready(function() {
 	});
 
 	/* Search */
-	$('#search input[name=\'search\']').parent().find('button').on('click', function() {
+	$('#search input[name=\'search\']').parent().find('input[type=submit]').on('click', function() {
 		var url = $('base').attr('href') + 'index.php?route=product/search';
 
 		var value = $('header #search input[name=\'search\']').val();
