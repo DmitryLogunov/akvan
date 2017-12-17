@@ -1,4 +1,5 @@
 public_html/system/storage/cache
 public_html/system/storage/cache/*
 public_html/system/storage/cache/*/*.*
+*.log
 .idea
