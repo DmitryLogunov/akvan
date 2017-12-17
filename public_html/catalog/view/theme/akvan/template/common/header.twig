@@ -50,34 +50,6 @@
 		<div class="container">
 			<!-- Top header begin -->
 			<div class="top clearfix">
-				<!-- Catalog main menu begin -->
-				<div class="catalog-menu pull-left">
-					<span>Выпадающий каталог</span>
-					<ul class="dropdown">
-						<li><a href="javascript:void(0)">Двигатель, узлы</a></li>
-						<li><a href="javascript:void(0)">Трансмиссия</a></li>
-						<li><a href="javascript:void(0)">Тормозные системы</a></li>
-						<li><a href="javascript:void(0)">Подвеска</a></li>
-						<li class="parent"><a href="javascript:void(0)">Электроника</a>
-							<div class="dropdown-sub">
-								<ul>
-									<li><a href="javascript:void(0)">Двигатель, узлы и агрегаты</a></li>
-									<li><a href="javascript:void(0)">Трансмиссия</a></li>
-									<li><a href="javascript:void(0)">Тормозные системы</a></li>
-									<li><a href="javascript:void(0)">Подведска</a></li>
-									<li><a href="javascript:void(0)">Электроника</a></li>
-									<li><a href="javascript:void(0)">Интерьер</a></li>
-									<li><a href="javascript:void(0)">Кузов</a></li>
-									<li><a href="javascript:void(0)">Выпускная система</a></li>
-									<li><a href="javascript:void(0)">Впуск и система охаждения</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="javascript:void(0)">Интерьер</a></li>
-						<li><a href="javascript:void(0)">Кузов</a></li>
-						<li><a href="javascript:void(0)">Выпускная система</a></li>
-					</ul>
-				</div>
 				{% if logged %}
 				<div class="login pull-left">
 					<div><a href="{{ account }}" title="{{ text_account }}" >{{ text_account }}</a></div>
@@ -112,10 +84,10 @@
 			<!-- Top header end -->
 			<!-- Bottom header begin -->
 			<div class="bottom clearfix">
-				<a href="/" class="logo pull-left" title="logotip">Интернет магазин тюнинга</a>
+				<a href="/" class="logo pull-left" title="logotip">Строительные товары</a>
 				<!-- Main menu begin -->
 					{% if informations %}
-      <nav class="main-menu pull-right">
+      <nav class="main-menu pull-left">
           <ul>
             {% for information in informations %}
               <li><a href="{{ information.href }}" title="{{ information.title }}">{{ information.title }}</a>

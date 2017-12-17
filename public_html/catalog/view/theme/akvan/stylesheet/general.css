@@ -122,7 +122,7 @@ header .top .catalog-menu:hover .dropdown{display:block;}
 header .top .catalog-menu .dropdown > li:hover .dropdown-sub{display:block;}
 header .top .catalog-menu:after{position:absolute;top:5px;right:13px;content:url('../img/icons/dropdown-arrow.png');}
 header .bottom{font-size:12px;position:relative;padding-top:26px;}
-header .bottom .main-menu{overflow:hidden;max-width:901px;margin-bottom:24px;}
+header .bottom .main-menu{overflow:hidden;max-width:901px;margin-bottom:24px;padding-left:90px;}
 header .bottom .main-menu > ul{display:table;}
 header .bottom .main-menu > ul > li{display:table-cell;height:26px;padding:0 16px;vertical-align:middle;border-left:1px solid #7f7f7f;}
 header .bottom .main-menu li:last-child{border-right:1px solid #7f7f7f;}
@@ -139,11 +139,11 @@ header .bottom .search{margin-right:15px;}
 header .bottom input.search-btn{display:inline-block;width:20px;height:20px;margin-left:4px;cursor:pointer;vertical-align:middle;border:0;background:url('../img/icons/search.png');background-repeat:no-repeat;}
 header .bottom .search input[type='text']{display:inline-block;width:232px;height:25px;margin-left:16px;padding:8px;vertical-align:middle;border:none;background-color:#c9c9c9;}
 header .bottom .search input[type='search']{width:235px;height:27px;padding:8px;border:0;-webkit-border-radius:3px;border-radius:3px;background-color:#dfdfdf;-webkit-box-shadow:inset 2px 2px 1px rgba(0, 0, 0, .1);box-shadow:inset 2px 2px 1px rgba(0, 0, 0, .1);}
-header .bottom .logo{font-size:11px;padding-top:57px;padding-left:72px;text-transform:uppercase;color:#004f9e;}
-header .bottom .logo:before{position:absolute;top:27px;left:0;content:url('../img/icons/logo.png');}
+header .bottom .logo{font-size:11px;padding-top:57px;padding-left:50px;text-transform:uppercase;color:#004f9e;}
+header .bottom .logo:before{position:absolute;top:27px;left:50px;content:url('../img/logo.png');}
 header .bottom .logo:hover{text-decoration:underline;}
 header .bottom form.select{overflow:hidden;}
-header .bottom .filter{padding:6px 8px;-webkit-border-radius:5px;border-radius:5px;-webkit-border-bottom-right-radius:0;border-bottom-right-radius:0;-webkit-border-bottom-left-radius:0;border-bottom-left-radius:0;background-color:#fff;}
+header .bottom .filter{width: 910px; padding:6px 8px;-webkit-border-radius:5px;border-radius:5px;-webkit-border-bottom-right-radius:0;border-bottom-right-radius:0;-webkit-border-bottom-left-radius:0;border-bottom-left-radius:0;background-color:#fff;}
 header .bottom .filter .submit-btn{margin-left:0;}
 header .bottom .filter select{font-size:12px;width:137px;height:27px;margin-right:6px;padding:0 11px;white-space:nowrap;color:#7f7f7f;border:1px solid #dadada;-webkit-border-radius:2px;border-radius:2px;background:transparent;background:url('../img/icons/select.png') no-repeat right center;-webkit-box-shadow:none;box-shadow:none;-webkit-appearance:none;-moz-appearance:none;}
 header .bottom .filter select:hover{cursor:pointer;}
@@ -502,3 +502,12 @@ footer .social .go:before{background-position:0 -57px;}
 	transform: rotate(180deg);
 	margin-left: 5px;
 }
+
+.valtec { background-image:url('../img/icons/valtec.png'); }
+.watts { background-image:url('../img/icons/watts.png'); }
+.henco { background-image:url('../img/icons/henco.png'); }
+.general_fittings { background-image:url('../img/icons/general_fittings.png'); }
+.cersanit { background-image:url('../img/icons/cersanit.png'); }
+.bugatti { background-image:url('../img/icons/bugatti.png'); }
+.pro_aqua { background-image:url('../img/icons/pro_aqua.png'); }
+.iitop { background-image:url('../img/icons/iitop.png'); }
