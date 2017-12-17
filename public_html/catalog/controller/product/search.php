@@ -72,7 +72,7 @@ class ControllerProductSearch extends Controller {
 		} else {
 			$this->document->setTitle($this->language->get('heading_title'));
 		}
-
+		$data['left_menu'] = $this->load->controller('common/left_menu');
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
@@ -196,7 +196,11 @@ class ControllerProductSearch extends Controller {
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
 				}
-
+				if ($result['image']) {
+					$popup = $this->model_tool_image->resize($result['image'], 444, 444);
+				} else {
+					$popup = $this->model_tool_image->resize('placeholder.png', 444, 444);
+				}
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
 					$price = $this->currency->format($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
 				} else {
@@ -224,6 +228,7 @@ class ControllerProductSearch extends Controller {
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
+					'popup'       => $popup,
 					'name'        => $result['name'],
 					'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
@@ -318,7 +323,37 @@ class ControllerProductSearch extends Controller {
 				'value' => 'p.model-DESC',
 				'href'  => $this->url->link('product/search', 'sort=p.model&order=DESC' . $url)
 			);
-
+			if(isset($this->request->get['order']) and $this->request->get['sort'] == 'p.price' and $this->request->get['order'] == 'ASC') {
+			$data['sort_price'] = $this->url->link('product/search',  '&sort=p.price&order=DESC' . $url);
+			$data['arrowup_p'] = 'arrowup';
+			}else{
+			$data['sort_price'] = $this->url->link('product/search','&sort=p.price&order=ASC' . $url);
+			$data['arrowup_p'] = '';
+			}
+			
+			if(isset($this->request->get['order']) and $this->request->get['sort'] == 'pd.name' and $this->request->get['order'] == 'ASC') {
+			$data['s_name'] = $this->url->link('product/search','&sort=pd.name&order=DESC' . $url);
+			$data['arrowup_n'] = 'arrowup';
+			}else{
+			$data['s_name'] = $this->url->link('product/search','&sort=pd.name&order=ASC' . $url);
+			$data['arrowup_n'] = '';
+			}
+			
+			if(isset($this->request->get['order']) and $this->request->get['sort'] == 'brand' and $this->request->get['order'] == 'ASC') {
+			$data['brand'] = $this->url->link('product/search','&sort=brand&order=DESC' . $url);
+			$data['arrowup_b'] = 'arrowup';
+			}else{
+			$data['brand'] = $this->url->link('product/search','&sort=brand&order=ASC' . $url);
+			$data['arrowup_b'] = '';
+			}
+			
+			if(isset($this->request->get['order']) and $this->request->get['sort'] == 'p.quantity' and $this->request->get['order'] == 'ASC') {
+			$data['s_quantity'] = $this->url->link('product/search','&sort=p.quantity&order=DESC' . $url);
+			$data['arrowup_q'] = 'arrowup';
+			}else{
+			$data['s_quantity'] =  $this->url->link('product/search','&sort=p.quantity&order=ASC' . $url);
+			$data['arrowup_q'] = ' ';
+			}
 			$url = '';
 
 			if (isset($this->request->get['search'])) {

@@ -1,3 +1,4 @@
+{% if logged %}
 <div class="list-group">
   {% if not logged %}
   <a href="{{ login }}" class="list-group-item">{{ text_login }}</a> <a href="{{ register }}" class="list-group-item">{{ text_register }}</a> <a href="{{ forgotten }}" class="list-group-item">{{ text_forgotten }}</a>
@@ -11,3 +12,4 @@
   <a href="{{ logout }}" class="list-group-item">{{ text_logout }}</a>
   {% endif %}
 </div>
+  {% endif %}
