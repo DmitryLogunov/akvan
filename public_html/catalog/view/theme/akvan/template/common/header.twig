@@ -17,13 +17,15 @@
 {% if keywords %}
 <meta name="keywords" content="{{ keywords }}" />
 {% endif %}
-
+<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+ <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" /> 
+<script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- Bxslider css -->
 <link rel="stylesheet" href="catalog/view/theme/akvan/stylesheet/jquery.bxslider.css">
 <!-- General css -->
 <link rel="stylesheet" href="catalog/view/theme/akvan/stylesheet/general.css">
 
-<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<!-- <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script> -->
 <script src="catalog/view/javascript/general.js" type="text/javascript"></script>
 <script src="catalog/view/javascript/jquery.bxslider.js" type="text/javascript"></script>
 <script src="catalog/view/javascript/jquery.arcticmodal-0.3.min.js" type="text/javascript"></script>
@@ -34,7 +36,7 @@
 {% for script in scripts %}
 <script src="{{ script }}" type="text/javascript"></script>
 {% endfor %}
-<!-- <script src="catalog/view/javascript/common.js" type="text/javascript"></script> -->
+ <script src="catalog/view/javascript/common.js" type="text/javascript"></script> 
 {% for link in links %}
 <link href="{{ link.href }}" rel="{{ link.rel }}" />
 {% endfor %}
@@ -44,49 +46,48 @@
 </head>
 <body>
   <!-- Header begin -->
-  <header>
-    <div class="container">
-      <!-- Top header begin -->
-      <div class="top clearfix">
-        <!-- Catalog main menu begin -->
-        <!-- Catalog main menu end -->
-        <!-- Form authorization begin -->
-        <form class="pull-left">
-          <label for="auth_login">Логин:</label>
-          <input type="text" id="auth_login" name="login">
-          <label for="auth_password">Пароль:</label>
-          <input type="password" id="auth_password" name="password">
-          <input class="submit-btn" type="submit" name="authorization" value="">
-        </form>
-        <!-- Form authorization end -->
-        <!-- Block register/forgot/question begin -->
-        <div class="login pull-left">
-          <div><a href="javascript:void(0)" title="Регистрация">Регистрация</a></div>
-          <div><a href="javascript:void(0)" title="Напомнить пароль">Напомнить пароль</a></div>
-        </div>
-        <div class="question pull-left">
-          <a href="javascript:void(0)" title="Задать вопрос">Задать вопрос</a>
-        </div>
-        <!-- Block register/forgot/question end -->
-        <!-- Cart begin -->
-        <div class="cart clearfix">
-          <div class="cart-icon pull-left">
-            <div id="order">Товаров <span>12</span></div>
-            <div id="price"><span>35 550 руб.</span></div>
-          </div>
-          <div class="pull-right">
-            <a href="javascript:void(0)" class="shop" title="Оформить">Оформить</a>
-          </div>
-        </div>
-        <!-- Cart end -->
-      </div>
-      <!-- Top header end -->
-      <!-- Bottom header begin -->
-      <div class="bottom clearfix">
-        <a href="/" class="logo pull-left" title="logotip">Строительные товары</a>
-        <!-- Main menu begin -->
-      {% if informations %}
-        <nav class="main-menu pull-left">
+	<header>
+		<div class="container">
+			<!-- Top header begin -->
+			<div class="top clearfix">
+				{% if logged %}
+				<div class="login pull-left">
+					<div><a href="{{ account }}" title="{{ text_account }}" >{{ text_account }}</a></div>
+					<div> <a href="{{ logout }}">{{ text_logout }}</a> </div>
+				</div>
+				{% else %}
+				<!-- Catalog main menu end -->
+				<!-- Form authorization begin -->
+				<form action="{{ login }}" method="post" class="pull-left" enctype="multipart/form-data">
+					<label for="auth_login">Логин:</label>
+					<input type="text" id="auth_login" name="email">
+					<label for="auth_password">Пароль:</label>
+					<input type="password" id="auth_password" name="password">
+					<input class="submit-btn" type="submit" name="authorization" value="">
+				</form>
+				<!-- Form authorization end -->
+				<!-- Block register/forgot/question begin -->
+				<div class="login pull-left">
+					<div><a href="{{ register }}" title="Регистрация">Регистрация</a></div>
+					<div><a href="{{ forgotten }}" title="Напомнить пароль">Напомнить пароль</a></div>
+				</div>
+				{% endif %}
+				<div class="question pull-left">
+					<a href="javascript:void(0)" title="Задать вопрос">Задать вопрос</a>
+				</div>
+				<!-- Block register/forgot/question end -->
+				<!-- Cart begin -->
+				{{ cart }}
+				
+				<!-- Cart end -->
+			</div>
+			<!-- Top header end -->
+			<!-- Bottom header begin -->
+			<div class="bottom clearfix">
+				<a href="/" class="logo pull-left" title="logotip">Строительные товары</a>
+				<!-- Main menu begin -->
+					{% if informations %}
+      <nav class="main-menu pull-left">
           <ul>
             {% for information in informations %}
               <li><a href="{{ information.href }}" title="{{ information.title }}">{{ information.title }}</a>
@@ -102,44 +103,43 @@
           </ul>
         </nav>
       {% endif %}
+				<!-- Main menu end -->
+				<!-- Filter+search begin -->
+				<div class="filter pull-right clearfix">
+					<!-- Search beginn -->
+					
+					{{ search }}
+					<!-- Search end -->
+					<!-- Filter begin -->
+					<div class="select pull-right">
+					 {% for filter_group in filter_groups %} 
+						<select name="filter[]" id="filter-group{{ filter_group.filter_group_id }}">
+								<option disabled selected>{{ filter_group.name }}</option>
+								{% for filter in filter_group.filter %} 
+								{% if filter.filter_id in filter_category %}
+								<option value="{{ filter.filter_id }}" selected>{{ filter.name }}</option>
+								 {% else %}
+								<option value="{{ filter.filter_id }}">{{ filter.name }}</option>
+								 {% endif %}
+								 {% endfor %} 
+							</select>
+						{% endfor %} 
+						<input class="submit-btn" id="button-filter" type="submit" name="select-btn" value="">
+					</div>
+					<!-- Filter end -->
+				</div>
+			</div>
+			<!-- Bottom header end -->
+		</div>
+	</header>
+	<script type="text/javascript"><!--
+$('#button-filter').on('click', function() {
+	filter = [];
 
-        <!-- Main menu end -->
-        <!-- Filter+search begin -->
-        <div class="filter pull-right clearfix">
-          <!-- Search beginn -->
-          <form class="search pull-left">
-            <input type="search" name="search" placeholder="Поиск по сайту">
-            <input class="search-btn" type="submit" name="search-btn" value="">
-          </form>
-          <!-- Search end -->
-          <!-- Filter begin -->
-          <form class="select pull-right">
-            <select name="marka">
-                <option disabled selected>Марка</option>
-                <option>marka 1</option>
-                <option>marka 2</option>
-              </select>
-            <select name="model">
-                <option disabled selected>Модель</option>
-                <option>E33</option>
-                <option>E52</option>
-              </select>
-            <select name="year">
-                <option disabled selected>Год</option>
-                <option>2012</option>
-                <option>2013</option>
-              </select>
-            <select name="brand">
-                <option disabled selected>Бренд</option>
-                <option>BMW</option>
-                <option>Ferrari</option>
-              </select>
-            <input class="submit-btn" type="submit" name="select-btn" value="">
-          </form>
-          <!-- Filter end -->
-        </div>
-      </div>
-      <!-- Bottom header end -->
-    </div>
-  </header>
-  <!-- Header end -->
+	$('select option:selected').each(function(element) {
+		filter.push(this.value);
+	});
+
+	location = '{{ action }}&filter=' + filter.join(',');
+});
+//--></script> 

@@ -1,0 +1,35 @@
+<div class="filter pull-right clearfix">
+					<!-- Search beginn -->
+					<form class="search pull-left">
+						<input type="search" name="search" placeholder="Поиск по сайту">
+						<input class="search-btn" type="submit" name="search-btn" value="">
+					</form>
+					<!-- Search end -->
+					<!-- Filter begin -->
+					<form class="select pull-right">
+					 {% for filter_group in filter_groups %} 
+						<select name="filter[]" id="filter-group{{ filter_group.filter_group_id }}">
+								<option disabled selected>{{ filter_group.name }}</option>
+								{% if filter.filter_id in filter_category %}
+								<option value="{{ filter.filter_id }}" selected>{{ filter.name }}</option>
+								 {% else %}
+								<option value="{{ filter.filter_id }}">{{ filter.name }}</option>
+								 {% endif %}
+							</select>
+						{% endfor %} 
+						<input class="submit-btn" id="button-filter" type="submit" name="select-btn" value="">
+					</form>
+					<!-- Filter end -->
+				</div>
+ 
+<script type="text/javascript"><!--
+$('#button-filter').on('click', function() {
+	filter = [];
+
+	$('option[name^=\'filter\']:selected').each(function(element) {
+		filter.push(this.value);
+	});
+
+	location = '{{ action }}&filter=' + filter.join(',');
+});
+//--></script> 

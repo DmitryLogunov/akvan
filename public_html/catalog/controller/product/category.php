@@ -39,6 +39,7 @@ class ControllerProductCategory extends Controller {
 			$limit = $this->config->get('theme_' . $this->config->get('config_theme') . '_product_limit');
 		}
 
+		$data['left_menu'] = $this->load->controller('common/left_menu');
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
@@ -146,23 +147,21 @@ class ControllerProductCategory extends Controller {
 					'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url)
 				);
 			}
+			
+			$data['newproducts'] = array();
 
-			$data['products'] = array();
-
-			$filter_data = array(
+			$newfilter_data = array(
 				'filter_category_id' => $category_id,
-				'filter_filter'      => $filter,
-				'sort'               => $sort,
-				'order'              => $order,
-				'start'              => ($page - 1) * $limit,
-				'limit'              => $limit
+				'sort'               => 'p.sort_date',
+				'order'              => 'ASC',
+				'start'              => 0,
+				'limit'              => 3
 			);
+ 
 
-			$product_total = $this->model_catalog_product->getTotalProducts($filter_data);
+			$newresults = $this->model_catalog_product->getProducts($newfilter_data);
 
-			$results = $this->model_catalog_product->getProducts($filter_data);
-
-			foreach ($results as $result) {
+			foreach ($newresults as $result) {
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
 				} else {
@@ -193,12 +192,88 @@ class ControllerProductCategory extends Controller {
 					$rating = false;
 				}
 
-				$data['products'][] = array(
+				$data['newproducts'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
 					'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
+					'special'     => $special,
+					'tax'         => $tax,
+					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
+					'rating'      => $result['rating'],
+					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
+				);
+			}
+			$data['products'] = array();
+
+			$filter_data = array(
+				'filter_category_id' => $category_id,
+				'filter_filter'      => $filter,
+				'sort'               => $sort,
+				'order'              => $order,
+				'start'              => ($page - 1) * $limit,
+				'limit'              => $limit
+			);
+
+			$product_total = $this->model_catalog_product->getTotalProducts($filter_data);
+
+			$results = $this->model_catalog_product->getProducts($filter_data);
+
+			foreach ($results as $result) {
+				if ($result['image']) {
+					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				} else {
+					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+				}
+				
+				if ($result['image']) {
+					$popup = $this->model_tool_image->resize($result['image'], 444, 444);
+				} else {
+					$popup = $this->model_tool_image->resize('placeholder.png', 444, 444);
+				}
+
+				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+					$price = $this->currency->format($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+				} else {
+					$price = false;
+				}
+
+				if ((float)$result['special']) {
+					$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+					$profit  = round((1 - $special / $price) * 100, 1); 
+				} else {
+					$special = false;
+					$profit = false;
+				}
+				
+
+				if ($this->config->get('config_tax')) {
+					$tax = $this->currency->format((float)$result['special'] ? $result['special'] : $result['price'], $this->session->data['currency']);
+				} else {
+					$tax = false;
+				}
+
+				if ($this->config->get('config_review_status')) {
+					$rating = (int)$result['rating'];
+				} else {
+					$rating = false;
+				}
+			if ($result['quantity'] <= 0) {
+               $stock = false;
+					}   else {
+               $stock = true;
+				}
+				$data['products'][] = array(
+					'product_id'  => $result['product_id'],
+					'thumb'       => $image,
+					'popup'       => $popup,
+					'name'        => $result['name'],
+					'stock'      => $stock,
+					'sku'         => $result['sku'],
+					'description' => utf8_substr(trim(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'))), 0, $this->config->get('theme_' . $this->config->get('config_theme') . '_product_description_length')) . '..',
+					'price'       => $price,
+					'profit'     => $profit,
 					'special'     => $special,
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
@@ -256,7 +331,7 @@ class ControllerProductCategory extends Controller {
 					'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=rating&order=DESC' . $url)
 				);
 
-				$data['sorts'][] = array(
+			$data['sorts'][] = array(
 					'text'  => $this->language->get('text_rating_asc'),
 					'value' => 'rating-ASC',
 					'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=rating&order=ASC' . $url)
@@ -274,7 +349,40 @@ class ControllerProductCategory extends Controller {
 				'value' => 'p.model-DESC',
 				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.model&order=DESC' . $url)
 			);
-
+			
+			if(isset($this->request->get['order']) and $this->request->get['sort'] == 'p.price' and $this->request->get['order'] == 'ASC') {
+			$data['sort_price'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.price&order=DESC' . $url);
+			$data['arrowup_p'] = 'arrowup';
+			}else{
+			$data['sort_price'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.price&order=ASC' . $url);
+			$data['arrowup_p'] = '';
+			}
+			
+			if(isset($this->request->get['order']) and $this->request->get['sort'] == 'pd.name' and $this->request->get['order'] == 'ASC') {
+			$data['s_name'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=pd.name&order=DESC' . $url);
+			$data['arrowup_n'] = 'arrowup';
+			}else{
+			$data['s_name'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=pd.name&order=ASC' . $url);
+			$data['arrowup_n'] = '';
+			}
+			
+			if(isset($this->request->get['order']) and $this->request->get['sort'] == 'brand' and $this->request->get['order'] == 'ASC') {
+			$data['brand'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=brand&order=DESC' . $url);
+			$data['arrowup_b'] = 'arrowup';
+			}else{
+			$data['brand'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=brand&order=ASC' . $url);
+			$data['arrowup_b'] = '';
+			}
+			
+			if(isset($this->request->get['order']) and $this->request->get['sort'] == 'p.quantity' and $this->request->get['order'] == 'ASC') {
+			$data['s_quantity'] = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.quantity&order=DESC' . $url);
+			$data['arrowup_q'] = 'arrowup';
+			}else{
+			$data['s_quantity'] =  $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.quantity&order=ASC' . $url);
+			$data['arrowup_q'] = ' ';
+			}
+		 
+			
 			$url = '';
 
 			if (isset($this->request->get['filter'])) {
