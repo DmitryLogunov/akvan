@@ -1,5 +1,9 @@
 # akvan
 
+Интернет-магазин строительных материалов
+CMS: Opencart
+Используемые технологии: PHP5, MySQL, Docker
+
 Рекомендации по запуска сайта локально в докере (https://www.docker.com/):
 - перейти в папку docker
 - набрать в терминале: docker-compose up -d --build
