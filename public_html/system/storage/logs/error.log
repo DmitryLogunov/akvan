@@ -41,3 +41,64 @@
 2017-12-17 22:02:45 - PHP Notice:  A non well formed numeric value encountered in /var/www/html/akvan.local/public_html/catalog/controller/product/category.php on line 244
 2017-12-17 22:04:29 - PHP Notice:  A non well formed numeric value encountered in /var/www/html/akvan.local/public_html/catalog/controller/product/category.php on line 244
 2017-12-17 22:04:29 - PHP Notice:  A non well formed numeric value encountered in /var/www/html/akvan.local/public_html/catalog/controller/product/category.php on line 244
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): Permission denied in /var/www/akvan/public_html/admin/controller/common/security.php on line 94
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): Permission denied in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/cache/cache.catalog.language.1513938773): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/cache/cache.store.1513938793): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/download/index.html): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/logs/app.log): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/logs/error.log): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/logs/index.html): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/logs/ocmod.log): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/logs/openbay.log): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/index.html): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/session/index.html): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/session/sess_9a24ca9bfee4cf40b21e45fbb3): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/upload/index.html): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/vendor/scss.inc.php): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/system/engine/action.php): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/system/engine/loader.php): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/system/library/config.php): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/system/library/language.php): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/admin/controller/common/filemanager.php): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/admin/controller/marketplace/extension.php): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/catalog/controller/information/contact.php): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/catalog/controller/startup/startup.php): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/catalog/controller/tool/upload.php): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/system/library/template/template.php): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/system/library/template/twig.php): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/admin/view/template/catalog/product_form.twig): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/admin/view/template/common/filemanager.twig): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/admin/view/template/common/header.twig): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/admin/view/template/marketplace/marketplace_list.twig): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  mkdir(): No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 102
+2017-12-22 9:33:33 - PHP Warning:  copy(/var/www/akvan/storage/modification/catalog/view/theme/default/template/information/contact.twig): failed to open stream: No such file or directory in /var/www/akvan/public_html/admin/controller/common/security.php on line 106

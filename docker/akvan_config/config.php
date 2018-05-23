@@ -22,9 +22,9 @@ define('DIR_UPLOAD', DIR_STORAGE . 'upload/');
 
 // DB
 define('DB_DRIVER', 'mysqli');
-define('DB_HOSTNAME', 'mysql');
+define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'akvan_user');
-define('DB_PASSWORD', '111');
+define('DB_PASSWORD', 'sfTKPo6TJZu6e8fx');
 define('DB_DATABASE', 'db_akvan');
 define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');

@@ -1,15 +1,15 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://akvan.infodemo.ru/');
+define('HTTP_SERVER', 'http://akvanspb.ru/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://akvan.infodemo.ru/');
+define('HTTPS_SERVER', 'http://akvanspb.ru/');
 
 // DIR
 define('DIR_APPLICATION', '/var/www/akvan/public_html/catalog/');
 define('DIR_SYSTEM', '/var/www/akvan/public_html/system/');
 define('DIR_IMAGE', '/var/www/akvan/public_html/image/');
-define('DIR_STORAGE', DIR_SYSTEM.'storage/');
+define('DIR_STORAGE', '/var/www/akvan/storage/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/theme/');
 define('DIR_CONFIG', DIR_SYSTEM . 'config/');
@@ -24,7 +24,7 @@ define('DIR_UPLOAD', DIR_STORAGE . 'upload/');
 define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'akvan_user');
-define('DB_PASSWORD', 'C8p4PlCMHEw1xBVt');
+define('DB_PASSWORD', 'sfTKPo6TJZu6e8fx');
 define('DB_DATABASE', 'db_akvan');
 define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');

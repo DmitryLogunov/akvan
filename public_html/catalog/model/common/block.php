@@ -12,8 +12,12 @@ class ModelCommonBlock extends Model {
                   AND i.parent_id = '". self::SLAIDSHOW_ROOT_ITEM_ID. "'
             GROUP BY i.information_id
             ORDER BY i.sort_order, LCASE(id.title) ASC");
-
-    	return $query->rows;
+    $result = array();
+    foreach ($query->rows as $row) {
+      $row['description'] = strip_tags(html_entity_decode($row['description'], ENT_QUOTES));
+      $result[] = $row;
+    }
+    return $result;    
   }
 }
 ?>
